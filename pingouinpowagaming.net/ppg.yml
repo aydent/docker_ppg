@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+            - "8383:80"
+
+    volumes:
+      - ./wp:/var/www/html
+    environment:
+      - WORDPRESS_DB_PASSWORD=xxxxxxxxxxxxxxxx  
+      - VIRTUAL_HOST=pingouinpowagaming.net
+
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: xxxxxxxxxxxxxxxxxx
