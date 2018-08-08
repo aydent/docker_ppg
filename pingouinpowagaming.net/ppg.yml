@@ -6,16 +6,16 @@ services:
     image: wordpress
     restart: always
     ports:
-            - "8383:80"
+            - "${ppg_port}:80"
 
     volumes:
       - ./wp:/var/www/html
     environment:
-      - WORDPRESS_DB_PASSWORD=xxxxxxxxxxxxxxxx  
+      - WORDPRESS_DB_PASSWORD= ${wp_pwd} 
       - VIRTUAL_HOST=pingouinpowagaming.net
 
   mysql:
     image: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: xxxxxxxxxxxxxxxxxx
+      MYSQL_ROOT_PASSWORD: ${mysqlrootpwd}
